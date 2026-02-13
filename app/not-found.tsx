@@ -1,4 +1,4 @@
-import css from "./Page.module.css";
+import css from "./not-found.module.css";
 
 const Page = () => {
   return (

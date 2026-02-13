@@ -1,5 +1,4 @@
-import NoteDetailsClient from "@/components/NotePreview/NotePreview";
-import css from "./Page.module.css";
+import NoteDetailsClient from "./NoteDetails.client";
 
 const Page = () => {
   return <NoteDetailsClient />;

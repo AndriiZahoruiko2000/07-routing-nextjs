@@ -1,8 +1,9 @@
 "use client";
 
 import Modal from "@/components/Modal/Modal";
-import NoteDetailsClient from "@/components/NotePreview/NotePreview";
+
 import { useRouter } from "next/navigation";
+import NoteDetailsClient from "./NotePreview.client";
 
 const Page = () => {
   const router = useRouter();
