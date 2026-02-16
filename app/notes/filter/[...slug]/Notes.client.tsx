@@ -1,6 +1,6 @@
 "use client";
 import css from "./NotesPage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useDebounce } from "use-debounce";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -12,15 +12,20 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 
 import NoteList from "@/components/NoteList/NoteList";
 import { useParams } from "next/navigation";
+import { Note } from "@/types/note";
 
-const NotesClient = () => {
-  const params = useParams();
-  console.log(params);
-  const filterTag = (params.slug || [])[0];
+interface NotesClientProps {
+  filterTag: string;
+}
 
+const NotesClient = ({ filterTag }: NotesClientProps) => {
   const [page, setPage] = useState(1);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
 
   const [query] = useDebounce(search, 1000);
 
@@ -36,8 +41,8 @@ const NotesClient = () => {
     refetchOnMount: false,
   });
 
-  const notesList = noteQuery.data?.notes || [];
-  const totalPages = noteQuery.data?.totalPages ?? 0;
+  const notesList: Note[] = noteQuery.data?.notes || [];
+  const totalPages: number = noteQuery.data?.totalPages ?? 0;
   const loading = noteQuery.isLoading;
   const isError = noteQuery.isError;
 
