@@ -7,7 +7,9 @@ import { fetchNoteById } from "@/lib/api";
 
 import Modal from "@/components/Modal/Modal";
 
-const NoteDetailsClient = () => {
+interface NoteDetailsClientProps {}
+
+const NoteDetailsClient = ({}: NoteDetailsClientProps) => {
   const { id } = useParams();
 
   const router = useRouter();
