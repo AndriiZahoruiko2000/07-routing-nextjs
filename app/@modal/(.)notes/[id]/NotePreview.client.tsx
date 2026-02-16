@@ -43,7 +43,9 @@ const NoteDetailsClient = () => {
           <p className={css.content}>{notesDetailsQuery.data?.content}</p>
           <p className={css.date}>{notesDetailsQuery.data?.createdAt}</p>
           <p className={css.tag}>{notesDetailsQuery.data?.tag}</p>
-          <button className={css.backBtn}>close</button>
+          <button className={css.backBtn} onClick={handleClose}>
+            close
+          </button>
         </div>
       </div>
     </Modal>
