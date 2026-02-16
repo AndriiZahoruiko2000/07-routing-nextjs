@@ -40,6 +40,7 @@ const Modal = ({ children, onClose }: ModalProps) => {
       aria-modal="true"
       onClick={handleBackdropClick}
     >
+      <button onClick={onClose}>close modal</button>
       <div className={css.modal}>{children}</div>
     </div>,
     document.body,

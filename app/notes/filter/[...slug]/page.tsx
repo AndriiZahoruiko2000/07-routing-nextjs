@@ -19,7 +19,7 @@ const Page = async ({ params }: PageProps) => {
   const tag = slug[0];
 
   await queryClient.prefetchQuery({
-    queryKey: ["getNotes", 1, ""],
+    queryKey: ["getNotes", 1, tag],
     queryFn: () =>
       getNotes({
         page: 1,
